@@ -1,0 +1,26 @@
+
+
+name: 'Email_Sent'
+    
+  
+on:
+  schedule:  
+    - cron: '*/15 * * * *'
+
+jobs:
+
+  Email:
+    name: "Email"
+    runs-on: ubuntu-latest
+
+
+    defaults:
+      run:
+        shell: bash
+        
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Senting Email
+      run: echo "Hi Cron Job"
