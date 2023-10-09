@@ -1,26 +1,13 @@
-
-
-name: 'Email_Sent'
-    
-  
+name: cron
 on:
-  schedule:  
+  schedule:
     - cron: '*/15 * * * *'
 
 jobs:
-
-  Email:
-    name: "Email"
+  test_schedule:
     runs-on: ubuntu-latest
-
-
-    defaults:
-      run:
-        shell: bash
-        
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Senting Email
-      run: echo "Hi Cron Job"
+      - name: Not on Monday or Wednesday
+        run: echo "This step will be skipped on Monday and Wednesday"
+      - name: Every time
+        run: echo "This step will always run"
